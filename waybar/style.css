@@ -1,0 +1,183 @@
+* {
+    border-radius: 10px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.5s;
+}
+    
+
+window#waybar {
+    background: rgba(30, 30, 46, 0);
+    color: #f4d9e1
+}
+
+tooltip {
+    background: #242222;
+    border-radius: 5px;
+    border: none;
+}
+
+#custom-power_profile,
+#custom-weather,
+#custom-logo,
+#window,
+#clock,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#pulseaudio,
+#pulseaudio-slider,
+#backlight {
+    background: #313131;
+    opacity: 1;
+    padding: 0px 15px;
+    margin: 0;
+    margin-top: 5px;
+    color: #f3f3f3;
+}
+
+/* workspaces */
+
+#workspaces {
+    margin-left: 5px;
+    padding: 0px;
+    padding-left: 5px;
+}
+
+#workspaces button {
+    color: #8ea1b8;
+}
+
+#workspaces button.active {
+    color: #FFFFFF;
+    background: #004DFF;
+}
+
+#workspaces button.focused {
+    color: #afbefa;
+    background: #eba0ac;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+}
+
+/* temperature */
+
+#temperature {
+    margin-left: 5px;
+}
+
+#temperature.critical {
+    color: #eba0ac;
+}
+
+/* backlight */
+
+#backlight {
+    padding-left: 7px;
+    color: #e05887; 
+}
+
+/* tray */
+
+#tray {
+    margin-right: 5px;
+}
+
+/* custom-power_profile */
+
+#custom-power_profile {
+    color: #a6e3a1;
+}
+
+/* window */
+
+#window {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* clock */
+
+#clock {
+    color: #FFFFFF;
+    margin-right: 5px;
+    border-right: 0px;
+}
+
+/* network */
+
+#network {
+    color: #FFFFFF;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+/* bluetooth */
+
+#bluetooth {
+    color: #89b4fa;
+    margin-right: 5px;
+} 
+
+/* custom-weather */
+
+#custom-weather {
+    border-right: 0px;
+    margin-left: 0px;
+}
+
+/* custom-logo */
+
+#custom-logo {
+    color: #2397fc;
+    margin-left: 5px;
+}
+
+/* pulseaudio */
+
+#pulseaudio {
+    margin-right: 0px;
+    color: #FFFFFF;
+}
+
+/* pulseaudio/slider */
+
+#pulseaudio.microphone {
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+
+#pulseaudio-slider{
+    margin-right: 5px;
+    padding-left: 0px;
+}
+
+#pulseaudio-slider slider {
+    background-color: #FFFFFF;
+    padding: 0;
+    background-image: none;
+    border: none;
+}
+
+#pulseaudio-slider trough {
+    min-width: 150px;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    background-color: #FFFFFF;
+    border: none;
+    min-height: 4px;
+}

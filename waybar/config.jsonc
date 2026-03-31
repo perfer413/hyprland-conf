@@ -1,0 +1,123 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "height": 41,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "custom/logo",
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "temperature",
+        "backlight",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "pulseaudio/slider",
+        "clock",
+        "network",
+        "bluetooth",
+        "tray"
+    ],
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+    "custom/logo": {
+        "tooltip": false,
+        "format": "󰣇"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M  }",
+        "interval": 60,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "timezone": "Indian/Antananarivo",
+        "calendar": {
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-click-right": "~/.config/waybar/scripts/audio-output.sh",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "  Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-click-right": "~/.config/waybar/scripts/audio-input.sh",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    "temperature": {
+        "format": " {temperatureC}°C",
+        "critical-threshold": 80
+    },
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{icon} {ifname}: {ipaddr}",
+        "tooltip-format-ethernet": "{icon} {ifname}: {ipaddr}",
+        "tooltip-format-wifi": "{icon} {ifname} ({essid}): {ipaddr}",
+        "tooltip-format-disconnected": "{icon} disconnected",
+        "tooltip-format-disabled": "{icon} disabled",
+        "on-click": "~/.config/waybar/scripts/pop.sh nmtui connect"
+    },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "󰂯",    // Bluetooth включен, нет подключений
+      "disabled": "󰂲",    // Bluetooth выключен
+      "connected": "󰂱",   // Есть подключенные устройства
+      "off": "󰂲"          // Адаптер отключен
+    },
+    "format-connected": "󰂱 {num_connections}",
+    "format-disabled": "",
+    "tooltip-format": "{controller_alias} - {controller_address}",
+    "tooltip-format-connected": "{controller_alias}\n{num_connections} подключено\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager",  // Левый клик - открыть менеджер
+    "on-click-right": "bluetoothctl power off"  // Правый клик - выключить
+  }
+}
