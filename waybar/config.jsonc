@@ -1,20 +1,22 @@
 {
     "layer": "top",
     "position": "top",
-    "mod": "dock",
-    "height": 41,
+    "mod": "hide",
+    "height": 35,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
     "modules-left": [
         "custom/logo",
+        "temperature",
+        "custom/active-output",
+        "custom/active-input",
     ],
     "modules-center": [
         "hyprland/workspaces",
     ],
     "modules-right": [
-        "temperature",
         "backlight",
         "pulseaudio#microphone",
         "pulseaudio",
@@ -30,7 +32,7 @@
     },
     "custom/logo": {
         "tooltip": false,
-        "format": "󰣇"
+        "format": " 󰣇 "
     },
     "tray": {
         "icon-size": 15,
@@ -52,10 +54,9 @@
         },
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": " {icon} {volume} ",
         "format-muted": " Muted",
         "on-click": "pamixer -t",
-        "on-click-right": "~/.config/waybar/scripts/audio-output.sh",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
         "scroll-step": 5,
@@ -79,11 +80,10 @@
         "orientation": "horizontal"
     },
     "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
+        "format": " {format_source} ",
+        "format-source": " {volume}",
         "format-source-muted": "  Muted",
         "on-click": "pamixer --default-source -t",
-        "on-click-right": "~/.config/waybar/scripts/audio-input.sh",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
@@ -94,30 +94,49 @@
     },
     "network": {
         "interval": 5,
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconnected": "󰖪",
-        "tooltip-format": "{icon} {ifname}: {ipaddr}",
-        "tooltip-format-ethernet": "{icon} {ifname}: {ipaddr}",
-        "tooltip-format-wifi": "{icon} {ifname} ({essid}): {ipaddr}",
-        "tooltip-format-disconnected": "{icon} disconnected",
-        "tooltip-format-disabled": "{icon} disabled",
+        "format-wifi": "   {essid} ",
+        "format-ethernet": " 󰈀 {ipaddr} ",
+        "format-disconnected": " 󰖪 ",
+        "tooltip-format": " {icon} {ifname}: {ipaddr} ",
+        "tooltip-format-ethernet": " {icon} {ifname}: {ipaddr} ",
+        "tooltip-format-wifi": " {icon} {ifname} ({essid}): {ipaddr} ",
+        "tooltip-format-disconnected": " {icon} disconnected ",
+        "tooltip-format-disabled": " {icon} disabled ",
         "on-click": "~/.config/waybar/scripts/pop.sh nmtui connect"
     },
   "bluetooth": {
-    "format": "{icon}",
+    "format": " {icon} ",
     "format-icons": {
-      "enabled": "󰂯",    // Bluetooth включен, нет подключений
-      "disabled": "󰂲",    // Bluetooth выключен
-      "connected": "󰂱",   // Есть подключенные устройства
-      "off": "󰂲"          // Адаптер отключен
+      "enabled": " 󰂯 ",    // Bluetooth включен, нет подключений
+      "disabled": " 󰂲 ",    // Bluetooth выключен
+      "connected": " 󰂱 ",   // Есть подключенные устройства
+      "off": " 󰂲 "          // Адаптер отключен
     },
     "format-connected": "󰂱 {num_connections}",
     "format-disabled": "",
     "tooltip-format": "{controller_alias} - {controller_address}",
     "tooltip-format-connected": "{controller_alias}\n{num_connections} подключено\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "blueman-manager",  // Левый клик - открыть менеджер
-    "on-click-right": "bluetoothctl power off"  // Правый клик - выключить
+    "on-click-right": "blueman-manager",  // Левый клик - открыть менеджер
+  },
+  "custom/active-output": {
+    "format": "{}",
+    "exec": "wpctl status | grep '*' | cut -c 13-40 | head -n 1",
+    "interval": 2,
+    "tooltip": false,
+    "on-click-right": "wpctl set-default $(wpctl status | grep -m 1 -A 1 '*' | cut -c 9-10 | sed -n '2,2p')",
+    "on-click": "wpctl set-default $(wpctl status | grep -m 1 -B 1 '*' | cut -c 9-10 | sed -n '1,1p')",
+    "on-scroll-up": "wpctl set-default $(wpctl status | grep -m 1 -B 1 '*' | cut -c 9-10 | sed -n '1,1p')",
+    "on-scroll-down": "wpctl set-default $(wpctl status | grep -m 1 -A 1 '*' | cut -c 9-10 | sed -n '2,2p')"
+  },
+  "custom/active-input": {
+    "format": "{}",
+    "exec": "wpctl status | grep '*' | cut -c 13-40 | sed -n '2,2p'",
+    "interval": 2,
+    "tooltip": false,
+    "on-click-right": "wpctl set-default $(wpctl status | grep -m 2 -A 1 '*' | cut -c 9-10 | sed -n '5,5p')",
+    "on-scroll-down": "wpctl set-default $(wpctl status | grep -m 2 -A 1 '*' | cut -c 9-10 | sed -n '5,5p')",
+    "on-click": "wpctl set-default $(wpctl status | grep -m 2 -B 1 '*' | cut -c 9-10 | sed -n '4,4p')",
+    "on-scroll-up": "wpctl set-default $(wpctl status | grep -m 2 -B 1 '*' | cut -c 9-10 | sed -n '4,4p')",
   }
 }
