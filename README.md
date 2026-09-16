@@ -3,5 +3,6 @@
 
 
 # INSTALLATION
+```bash
 sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop
 awww img ~/.config/hypr/desktop-wallpaper.jpg
