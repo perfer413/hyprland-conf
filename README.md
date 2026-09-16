@@ -1,6 +1,7 @@
 # HYPRLAND CONFIG
-<img width="1920" height="1080" alt="изображение" src="https://github.com/user-attachments/assets/bb464c76-eb30-4d7e-a520-1113e8441fd2" />
-swww+hyprland+waybar+hyprlock
+<img width="1920" height="1080" alt="изображение" src="https://github.com/user-attachments/assets/1b96443f-48bb-4887-9ebc-b2230974a86e" />
 
-# SWWW install image
-swww img ~/.config/hypr/desktop-wallpaper.jpg
+
+# INSTALLATION
+sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop
+awww img ~/.config/hypr/desktop-wallpaper.jpg
