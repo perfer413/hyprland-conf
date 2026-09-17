@@ -5,7 +5,7 @@
 # INSTALLATION
 ```bash
 git clone https://github.com/perfer413/hyprland-conf.git
-sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop kitty
+sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop kitty awww blueman
 yay -S tty-clock
 cd hyprland-conf/
 cp hypr/ ~/.config
