@@ -5,10 +5,10 @@
 # INSTALLATION
 ```bash
 git clone https://github.com/perfer413/hyprland-conf.git
-sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop kitty awww blueman
+sudo pacman -S ttf-jetbrains-mono-nerd hyperland waybar wofi rofi fastfetch btop kitty awww blueman grim slurp wl-clipboard
 yay -S tty-clock
 cd hyprland-conf/
-cp hypr/ ~/.config
-cp waybar/ ~/.config
-cp kitty/ ~/.config
+cp -r hypr/ ~/.config
+cp -r waybar/ ~/.config
+cp -r kitty/ ~/.config
 awww img ~/.config/hypr/desktop-wallpaper.jpg
