@@ -42,16 +42,16 @@
         "format": "{:%H:%M  }",
         "interval": 60,
         "tooltip-format": "<tt>{calendar}</tt>",
-        "timezone": "Indian/Antananarivo",
+        "timezone": "Europe/Moscow",
         "calendar": {
             "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "months": "<span color='#FFFFFF'><b>{}</b></span>",
+                "days": "<span color='#FFFFFF'><b>{}</b></span>",
                 "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "weekdays": "<span color='#8ea1b8'><b>{}</b></span>",
                 "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
             }
-        },
+        }
     },
     "pulseaudio": {
         "format": " {icon} {volume} ",
