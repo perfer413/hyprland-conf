@@ -14,10 +14,10 @@
         "custom/active-input",
     ],
     "modules-center": [
-        "hyprland/workspaces",
+        "hyprland/workspaces"
     ],
     "modules-right": [
-        "backlight",
+        "custom/cava",
         "pulseaudio#microphone",
         "pulseaudio",
         "pulseaudio/slider",
@@ -117,7 +117,7 @@
     "tooltip-format": "{controller_alias} - {controller_address}",
     "tooltip-format-connected": "{controller_alias}\n{num_connections} подключено\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click-right": "blueman-manager",  // Левый клик - открыть менеджер
+    "on-click-right": "blueman-manager"  // Левый клик - открыть менеджер
   },
   "custom/active-output": {
     "format": "{}",
@@ -137,6 +137,12 @@
     "on-click-right": "wpctl set-default $(wpctl status | grep -m 2 -A 1 '*' | cut -c 8-10 | sed -n '5,5p')",
     "on-scroll-down": "wpctl set-default $(wpctl status | grep -m 2 -A 1 '*' | cut -c 8-10 | sed -n '5,5p')",
     "on-click": "wpctl set-default $(wpctl status | grep -m 2 -B 1 '*' | cut -c 8-10 | sed -n '4,4p')",
-    "on-scroll-up": "wpctl set-default $(wpctl status | grep -m 2 -B 1 '*' | cut -c 8-10 | sed -n '4,4p')",
+    "on-scroll-up": "wpctl set-default $(wpctl status | grep -m 2 -B 1 '*' | cut -c 8-10 | sed -n '4,4p')"
+  },
+  "custom/cava": {
+      "exec": "~/.config/waybar/scripts/cava-waybar.sh",
+      "format": "{}",
+      "return-type": "",
+      "escape": false
   }
 }
