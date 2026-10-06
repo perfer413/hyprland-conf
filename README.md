@@ -1,7 +1,4 @@
 # HYPRLAND CONFIG
-<img width="1920" height="1080" alt="изображение" src="https://github.com/user-attachments/assets/1b96443f-48bb-4887-9ebc-b2230974a86e" />
-
-
 # INSTALLATION
 ```bash
 git clone https://github.com/perfer413/hyprland-conf.git
