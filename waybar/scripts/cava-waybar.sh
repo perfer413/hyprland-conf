@@ -7,7 +7,7 @@ cat > "$CONFIG_FILE" << 'EOF'
 framerate = 60
 bars = 12
 autosens = 0
-sensitivity = 200
+sensitivity = 150
 
 [input]
 method = pulse
